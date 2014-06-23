@@ -1,9 +1,14 @@
 <?php
 function portfolio($colum = 2, $title = 'Productos', $datos){
-
+	
+	# Columnas
+	$colums = array(6,4,3);
+	
+	if($colum==2) $colum = 0;
+	if($colum==3) $colum = 1;
+	if($colum==4) $colum = 2;
+	
 	if(isset($datos) && is_array($datos)){
-
-		echo '<div class="row">';
 			
 			echo '<div class="col-md-12">';
 			
@@ -35,7 +40,7 @@ function portfolio($colum = 2, $title = 'Productos', $datos){
 						
 							echo '<li>';
 							
-								echo '<article class="col-md-3 project" data-tags="'.$datos['items'][$i]['category'].'">';
+								echo '<article class="col-md-'.$colums[$colum].' project" data-tags="'.$datos['items'][$i]['category'].'">';
 									
 									echo '<div class="project-item-isotope">';
 										
@@ -76,7 +81,6 @@ function portfolio($colum = 2, $title = 'Productos', $datos){
 					
 				echo '</section>';
 			
-			echo '</div>';
 			
 		echo '<div>';
 	}
